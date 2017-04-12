@@ -1,3 +1,12 @@
+.header{
+  padding: 5px 0;
+
+  .wrapper{
+    @include flex-box();
+    @include justify-content(end);
+  }
+}
+
 .login{
   width: 98%;
   max-width: 400px;
@@ -11,6 +20,7 @@
 .user-list{
   height: 300px;
   overflow: auto;
+  max-width: 100%;
 
   @media (max-width: $width-xs) {
     height: 120px;
@@ -26,10 +36,13 @@
 .uk-comment{
   position: relative;
   z-index: 1;
+  margin: 0 0 0 0;
 
   &.myMessage{
     background-color: #1e87f0;
     color: white;
+    margin: 0 0 0 auto;
+    text-align: right;
   }
 
   &:hover{

@@ -60,10 +60,11 @@ $duration: 0.3s;
   }
 
   .popup{
-    @include centered();
-    background-color: white;
-    width: 400px;
-    height: 400px;
+
+    .uk-fieldset{
+      @include centered();
+      width: 320px;
+    }
 
     &_lg{
       position: absolute;

@@ -1,7 +1,7 @@
 var chatScroll = function () {
-    if($('.uk-panel-scrollable').length > 0){
+    if($('.chat-panel').length > 0){
         setTimeout(function () {
-            var elm = $('.uk-panel-scrollable');
+            var elm = $('.chat-panel');
             elm.scrollTop(elm.get(0).scrollHeight);
         }, 10);
     }
@@ -51,6 +51,9 @@ var sendChatMessage =  function (m, s) {
 var app = new Vue ({
     el:'#app',
     data:{
+        modal: {
+            isOpen: false,
+        },
         spinnerOn: false,
         login: {
             name: '',
@@ -88,6 +91,10 @@ var app = new Vue ({
         getChatRoom(self);
     },
     methods:{
+        modalToggle: function (n) {
+            this.modal.isOpen = !this.modal.isOpen;
+            this.modal.thanks = false;
+        },
         removeMessage: function (elem) {
             var self = this;
             self.chatRoom.splice(self.chatRoom.indexOf(elem), 1);
@@ -114,6 +121,7 @@ var app = new Vue ({
                 setTimeout(function () {
                     sendChatMessage(message, self);
                     getChatRoom(self);
+                    chatScroll();
                     self.spinnerOn = false;
                 }, 800)
             }
@@ -156,6 +164,7 @@ var app = new Vue ({
                             });
                         }
                         else{
+                            self.modal.isOpen = !self.modal.isOpen;
                             UIkit.notification({
                                 message: 'Добро пожаловать!',
                                 status: 'success',
