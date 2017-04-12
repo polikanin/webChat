@@ -1,0 +1,67 @@
+.login{
+  width: 98%;
+  max-width: 400px;
+  padding: 20px;
+  margin: 50px auto;
+
+  @media (max-width: $width-xs) {
+    margin: 10px auto;
+  }
+}
+.user-list{
+  height: 300px;
+  overflow: auto;
+
+  @media (max-width: $width-xs) {
+    height: 120px;
+    overflow: auto;
+  }
+}
+.uk-panel-scrollable{
+  height: 300px;
+}
+.uk-comment-primary{
+  padding: 15px;
+}
+.uk-comment{
+  position: relative;
+  z-index: 1;
+
+  &.myMessage{
+    background-color: #1e87f0;
+    color: white;
+  }
+
+  &:hover{
+    .remove-message{
+      opacity: 1;
+    }
+  }
+}
+.remove-message{
+  opacity: 0.05;
+  top: 20px;
+  right: 10px;
+  z-index: 1;
+  position: absolute;
+  @include transition();
+
+  img{
+    display: block;
+    width: 20px;
+  }
+}
+.chat{
+  .uk-button{
+    @media (max-width: $width-xs) {
+      padding: 0 5px;
+    }
+  }
+}
+.chat-spinner{
+  margin: 5px auto;
+  width: 30px;
+  height: 30px;
+  display: block;
+  overflow: hidden;
+}

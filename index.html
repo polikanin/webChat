@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <link type="image/x-icon" href="favicon.ico" rel="shortcut icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper-all" id="app">
+    <!-- HEADER -->
+    <header class="header">
+        <div class="wrapper">
+
+        </div>
+    </header>
+
+    <!-- SECTION 1 -->
+    <section class="s1">
+        <div class="wrapper uk-section uk-section-default">
+            <transition name="fade">
+                <fieldset class="uk-fieldset" v-if="!sign.isLogin">
+                    <form class="login uk-card uk-card-default" action="" method="post" v-on:submit.prevent="logIn($event)">
+                        <legend class="uk-legend">Войдите</legend>
+
+                        <div class="uk-margin">
+                            <input type="text" class="uk-input" name="name" placeholder="Имя" v-model="login.name" data-required>
+                        </div>
+                        <div class="uk-margin">
+                            <input type="password" class="uk-input" name="password" placeholder="Пароль" v-model="login.password"  data-required>
+                        </div>
+
+                        <button class="uk-button uk-button-primary">Вход</button>
+                    </form>
+                </fieldset>
+            </transition>
+
+            <div class="chat" v-if="sign.isLogin" uk-grid>
+                <h1 class="uk-heading-line uk-text-center uk-width-1-1"><span>Веб чат</span></h1>
+                <div class="uk-width-1-4@m uk-width-2-5@s">
+                    <h5 class="uk-heading-line uk-text-center"><span>Список пользователей</span></h5>
+                    <ul class="uk-list uk-list-striped user-list">
+                        <li v-for="user in users">
+                            {{user.name}}
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="uk-width-3-4@m uk-width-3-5@s">
+                    <div class="uk-panel uk-panel-scrollable uk-width-1-1">
+                        <article class="uk-comment uk-comment-primary uk-margin" v-for="item in chatRoom" v-bind:class="{myMessage: item.userId == user.userId}">
+                            <h4 class="uk-heading-bullet">{{item.userName}}</h4>
+                            <div class="uk-comment-body">
+                                {{item.text}}
+                            </div>
+                        </article>
+
+                        <div class="chat-spinner" uk-spinner v-show="spinnerOn"></div>
+                    </div>
+
+                    <form class="uk-width-1-1 uk-flex uk-flex-between" action="" v-on:submit.prevent="sendMessage($event, currentMessage)" data-message="Сообщение отправлено">
+                        <input type="text" class="uk-input uk-width-3-4" name="message" v-model="currentMessage" placeholder="Сообщение" data-required>
+                        <button class="uk-button uk-button-primary uk-width-1-4">send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!-- SCRIPT -->
+<script src="script/jquery/jquery.js"></script>
+<script src="script/uikit/js/uikit-icons.min.js"></script>
+<script src="script/uikit/js/uikit.min.js"></script>
+<script src="script/vue/vue.min.js"></script>
+<script src="script/main.js"></script>
+
+<link rel="stylesheet" href="script/uikit/css/uikit.min.css"/>
+<link rel="stylesheet" href="style/style.css"/>
+
+</body>
+</html>

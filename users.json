@@ -1,0 +1,20 @@
+{
+  "1": {
+    "userId": 1,
+    "userName": "Tolik",
+    "email": "qweqwe@qwe.qwe",
+    "password": "afnajnfjbandfj;bal"
+  },
+  "2": {
+    "userId": 2,
+    "userName": "Artyom",
+    "email": "asdasd@asd.asd",
+    "password": "afnajnfjbandfj;bal"
+  },
+  "3": {
+    "userId": 3,
+    "userName": "Andrey",
+    "email": "zxczxc@zxc.zxc",
+    "password": "afnajnfjbandfj;bal"
+  }
+}
