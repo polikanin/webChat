@@ -19,6 +19,7 @@
     <header class="header">
         <div class="wrapper">
             <button class="uk-button uk-button-primary" v-if="!sign.isLogin" v-on:click="modalToggle">login</button>
+            <button class="uk-button uk-button-primary" v-if="sign.isLogin" v-on:click="logout">logout</button>
         </div>
     </header>
 

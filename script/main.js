@@ -137,6 +137,13 @@ var app = new Vue ({
             }
 
         },
+        logout: function () {
+            this.sign.isLogin = false;
+            this.user.name = '';
+            this.user.userId = '';
+            this.login.name = '';
+            this.login.password = '';
+        },
         logIn: function (e) {
             var self = this;
             var jForm = $(e.target);
